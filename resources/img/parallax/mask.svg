@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1081.23">
+  <defs>
+    <filter id="luminosity-noclip" x="0" y="-13653.23" width="1920" height="32766" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <mask id="mask" x="0" y="-13653.23" width="1920" height="32766" maskUnits="userSpaceOnUse"/>
+    <linearGradient id="Dégradé_sans_nom_13" data-name="Dégradé sans nom 13" x1="67.97" y1="1147.47" x2="1567.6" y2="-352.17" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#47aaae"/>
+      <stop offset="1" stop-color="#00011b"/>
+      <stop offset="1" stop-color="#090909"/>
+      <stop offset="1" stop-color="#000"/>
+    </linearGradient>
+  </defs>
+  <g id="Calque_1-2" data-name="Calque 1">
+    <g id="parallax">
+      <g style="mask: url(#mask);">
+        <path d="m1349.63,1081.23c-449.88-.58-899.76-1.15-1349.63-1.73V0c640,.08,1280,.15,1920,.23-83.34,15.64-198.77,38.72-334.08,70.47C1007.71,206.35,440.51,339.34,398.24,529.49c-39.37,177.09,373.29,402.86,951.39,551.74Z" style="fill: url(#Dégradé_sans_nom_13); stroke-width: 0px;"/>
+      </g>
+    </g>
+  </g>
+</svg>
