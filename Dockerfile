@@ -36,8 +36,10 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Copy existing application directory contents
 COPY . /var/www
 
-# Copy existing application directory permissions
-COPY --chown=www-data:www-data . /var/www
+# Ensure necessary directories exist and are writable
+RUN mkdir -p /var/www/vendor /var/www/storage /var/www/bootstrap/cache
+RUN chown -R www-data:www-data /var/www
+RUN chmod -R 775 /var/www
 
 # Install PHP dependencies using Composer
 RUN composer install --no-dev --optimize-autoloader
