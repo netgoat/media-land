@@ -1,3 +1,6 @@
+@extends('base')
+@section('content')
+
 <h1>Branches</h1>
 <a href="{{ route('branches.create') }}" class="btn btn-primary">Add New Branch</a>
 
@@ -10,3 +13,4 @@
         </li>
     @endforeach
 </ul>
+@endsection()

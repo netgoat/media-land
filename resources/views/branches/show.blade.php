@@ -1,11 +1,29 @@
-<h1>{{ $branch->name }}</h1>
-<h1>{{ $branch->description }}</h1>
-<p>Details about the branch...</p>
+@extends('base')
+@section('content')
 
-<a href="{{ route('branches.edit', $branch->id) }}" class="btn btn-primary">Edit</a>
+    <section class="cover">
+        <div class="outer">
+            <div class="inner">
+                <div class="bg" style="background-image: url('/storage/{{$branch->cover->image_path }}')">
+                    <h2 class="section-heading">{{ $branch->name }}</h2>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<form action="{{ route('branches.destroy', $branch->id) }}" method="POST" style="display:inline;">
-    @csrf
-    @method('DELETE')
-    <button type="submit" class="btn btn-danger">Delete</button>
-</form>
+
+    <section class="post">
+        <div class="post-title">
+
+         </div>
+
+        <div class="post-content">
+
+            <p>{{ $branch->description }}</p>
+        </div>
+
+    </section>
+
+
+@endsection()
+

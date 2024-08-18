@@ -166,48 +166,126 @@
         </div>
 
     </section>
+     @if($branches->isNotEmpty() )
+        <section id="branches">
+            <div class="section-warpper">
 
-    <section id="branches">
-        <div class="section-warpper">
-
-            <div class="section-inner">
+                <div class="section-inner">
 
 
-                <div class="section-content">
-                    <div class="showcase-pin">
-                        <div class="show-text">
-                            <div class="show-text-contain">
+                    <div class="section-content">
+                        <div class="showcase-pin">
+                            <div class="show-text">
+                                <div class="show-text-contain">
 
-                                @foreach ($branches as $branch)
+                                    @foreach ($branches as $branch)
 
-                                    <div class="show-text-item">
-                                        <div class="title">{{ $branch->name }}</div>
-                                        <div class="text">
-                                            {{ $branch->description }}
+                                        <div class="show-text-item" >
+                                            <div class="title" data-marker-content="{{$branch->id}}" >{{ $branch->name }}</div>
+                                            <div class="text">
+                                                {{ $branch->description }}
 
+                                            </div>
+                                            <div class="btn">
+                                                <a href="{{ route('branches.show', $branch->id) }}"> Learn more</a>
+
+                                            </div>
                                         </div>
-                                        <div class="btn">
-                                            <a href="{{ route('branches.show', $branch->id) }}"> Learn more</a>
 
+                                    @endforeach
+
+
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="show-images">
+                                <div class="show-img-contain">
+                                    @foreach ($branches as $branch)
+
+                                        <div class="show-image" id="branch-img-{{$branch->id}}">
+                                             <img src="/storage/{{$branch->cover->image_path }}"
+                                                 alt=""/>
                                         </div>
+                                    @endforeach
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </section>
+
+    @endif()
+
+    @if($projects->isNotEmpty())
+
+        <section id="projects">
+            <div class="section-warpper">
+
+                <div class="gallery">
+                    <div class="gallery-filter">
+                        <div class="btn selected">All</div>
+
+                        @foreach ($branches as $branch)
+                            <div class="btn">{{ $branch->name }}</div>
+                        @endforeach
+                    </div>
+
+                    <div class="gallery-container">
+
+                        @foreach ($projects as $project)
+
+                            <div class="gallery-block">
+                                <div class="gallery-block-content">
+                                    <div class="gallery-block-image">
+                                        <a href="single-work.html">
+                                            <img src="/storage/{{$project->cover->image_path }}"
+                                                 alt=""/>
+                                        </a>
+
                                     </div>
+                                    <div class="gallery-block-title">{{ $project->name }}</div>
+                                    <div class="gallery-block-heading">{{ $project->branch->name }}</div>
+                                    <div class="gallery-block-more">
+                                        <a class="view-more" href="{{ route('projects.show', $project->id) }}">View
+                                            Project
+                                            <i
+                                                class="fa-solid fa-arrow-right fa-fw"></i></a>
 
-                                @endforeach
-
-
-                            </div>
-
-
-                        </div>
-                        <div class="show-images">
-                            <div class="show-img-contain">
-                                <div class="show-image">
-
-                                    <img src="https://placehold.co/1920x1080" alt="" srcset="">
+                                    </div>
                                 </div>
                             </div>
+
+                        @endforeach
+
+
+                    </div>
+                </div>
+
+
+                <div class="section-inner">
+                    <div class="section-inner-warpper">
+                        <div class="section-title">
+                        </div>
+                        <div class="section-content">
+
+
                         </div>
 
+                        <div class="section-buttons">
+
+                        </div>
                     </div>
 
 
@@ -216,93 +294,62 @@
 
             </div>
 
+        </section>
+    @endif()
 
-        </div>
-    </section>
+    <!--
 
-    <section id="projects">
-        <div class="section-warpper">
-
-            <div class="gallery">
-                <div class="gallery-filter">
-                    @foreach ($branches as $branch)
-                             <div class="btn">{{ $branch->name }}</div>
-                    @endforeach
-                </div>
-
-                <div class="gallery-container">
-
-                    @foreach ($projects as $project)
-
-                        <div class="gallery-block">
-                            <div class="gallery-block-content">
-                                <div class="gallery-block-image">
-                                    <a href="single-work.html">
-                                        <img src="https://placehold.co/400x300" alt=""/>
-
-                                    </a>
-
-                                </div>
-                                <div class="gallery-block-title">{{ $project->name }}</div>
-                                <div class="gallery-block-heading">{{ $project->branch->name }}</div>
-                                <div class="gallery-block-more">
-                                    <a class="view-more" href="{{ route('projects.show', $project->id) }}">View Project
-                                        <i
-                                            class="fa-solid fa-arrow-right fa-fw"></i></a>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    @endforeach
-
-
-                </div>
-            </div>
-
-
-            <div class="section-inner">
-                <div class="section-inner-warpper">
+      <section id="awards">
+            <div class="section-warpper">
+                <div class="section-outer"></div>
+                <div class="section-inner">
                     <div class="section-title">
+
                     </div>
+
                     <div class="section-content">
 
 
                     </div>
 
-                    <div class="section-buttons">
+                </div>
+            </div>
+        </section>
+
+
+
+    -->
+
+    <div class="heighlight">
+
+        <section id="network">
+            <div class="section-warpper">
+                <div class="section-outer"></div>
+                <div class="section-inner">
+                    <div class="section-title">
+                    </div>
+
+                    <div class="section-content">
+
+                        <img src="https://placehold.co/400x300" height="400" width="300" alt=""/>
+                        <img src="https://placehold.co/400x300" height="400" width="300" alt=""/>
+                        <img src="https://placehold.co/400x300" height="400" width="300" alt=""/>
+                        <img src="https://placehold.co/400x300" height="400" width="300" alt=""/>
+                        <img src="https://placehold.co/400x300" height="400" width="300" alt=""/>
+                        <img src="https://placehold.co/400x300" height="400" width="300" alt=""/>
 
                     </div>
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-    <section id="network">
-        <div class="section-warpper">
-            <div class="section-outer"></div>
-            <div class="section-inner">
-                <div class="section-title">
 
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer></footer>
+        <footer></footer>
+    </div>
+
 
 </main>
 
-
-<footer>
-
-
-</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"
@@ -315,7 +362,9 @@
         integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js"></script>
+
 <script>
+
     // Initialize Lenis for smooth scrolling
     const lenis = new Lenis();
     lenis.on("scroll", (e) => {
@@ -490,11 +539,68 @@
                 end: "bottom 80%",
                 toggleActions: "play complete play reset",
                 pin: ".show-images",
+                onUpdate:(self) => {
+                    getCurrentSection()
+                },
                 scrub: true,
                 //  markers:true,
-                pinSpacing: false
             },
         });
+
+
+
+        const contentMarkers = gsap.utils.toArray(".showcase-pin  .show-text .show-text-contain .show-text-item  .title ");
+
+        contentMarkers.forEach(marker => {
+
+            marker.content = document.querySelector(`#branch-img-${marker.dataset.markerContent}  img`);
+            gsap.set(marker.content, {transformOrigin: "center"});
+
+            marker.content.enter = function () {
+                gsap.fromTo(marker.content, {  autoAlpha: 0 }, {duration: 0.3, autoAlpha: 1 });
+            }
+
+            marker.content.leave = function () {
+                gsap.fromTo(marker.content, { autoAlpha: 1 } , {duration: 0.1, autoAlpha: 0});
+            }
+
+        });
+        let lastContent;
+        function getCurrentSection() {
+            let newContent;
+
+            const currScroll = scrollY;
+            // Find the current section
+            const element = document.querySelector('.show-img-contain');
+            contentMarkers.forEach(marker => {
+
+
+
+                if(marker.getBoundingClientRect().top < element.getBoundingClientRect().bottom) {
+                    newContent = marker.content;
+                }
+
+            });
+
+
+            if(newContent
+                && (lastContent == null
+                    || !newContent.isSameNode(lastContent))) {
+                // Fade out last section
+                if(lastContent) {
+                    lastContent.leave();
+                }
+
+                // Animate in new section
+                newContent.enter();
+
+                lastContent = newContent;
+            }
+
+        }
+
+
+
 
 
         const projectSectionAnimation = gsap.timeline({
@@ -509,6 +615,44 @@
         });
 
 
+        const awardsSectionAnimation = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#network",
+                start: "-200% top",
+                end: "bottom -30%",
+                toggleActions: "play complete play reset",
+                scrub: true,
+            },
+        });
+
+        awardsSectionAnimation.to(
+            " #network .section-content",
+            {
+                x: "-50%",
+                ease: "ease",
+            }
+        );
+
+
+        const footerSectionAnimation = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#network",
+                start: "top top ",
+                end: "bottom top",
+                toggleActions: "play complete play reset",
+            },
+        });
+
+
+        footerSectionAnimation.to(
+            ".heighlight",
+            {
+                background: "linear-gradient(180deg,  #00011b , #5ab597)",
+                duration: 1,
+                ease: "none"
+            }
+        );
+
     }
 
     // Initialize everything
@@ -517,7 +661,7 @@
         //initSwiper();
     });
 
-</script>
 
+</script>
 </body>
 </html>
