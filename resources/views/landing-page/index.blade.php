@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>MediaLand</title>
-    @vite(['resources/js/app.js', 'resources/scss/app.scss'])
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -17,24 +16,53 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @vite(['resources/js/app.js', 'resources/scss/app.scss'])
 
 </head>
 <body>
+<div class="menu-panel">
+    <div class="menu-container">
+
+        <div class="menu-items">
+            <div class="menu-item">Branches</div>
+            <div class="menu-item">Projects</div>
+            <div class="menu-item">Our Network</div>
+            <div class="menu-item">Awards</div>
+            <div class="menu-item">Contact Us</div>
+        </div>
+
+
+    </div>
+</div>
 
 <main>
     <header>
         <div class="logo"></div>
         <nav>
             <ul>
-                <li>Branches</li>
-                <li>Projects</li>
-                <li>Our Network</li>
-                <li>Awards</li>
-                <li>Contact Us</li>
+                <li class="nav-item">Branches</li>
+                <li class="nav-item">Projects</li>
+                <li class="nav-item">Our Network</li>
+                <li class="nav-item">Awards</li>
+                <li class="nav-item">Contact Us
+
+                <li class="menu">
+                    <svg class="menuLines l1" xmlns="http://www.w3.org/2000/svg" width="27" height="3"
+                         viewBox="0 0 27 3">
+                        <rect id="Rectangle_298" data-name="Rectangle 298" width="25" height="2.5" rx="1.5"
+                              fill="#F5F5F7"></rect>
+                    </svg>
+                    <svg class="menuLines l2" xmlns="http://www.w3.org/2000/svg" width="27" height="3"
+                         viewBox="0 0 27 3">
+                        <rect id="Rectangle_298" data-name="Rectangle 298" width="25" height="2.5" rx="1.5"
+                              fill="#F5F5F7"></rect>
+                    </svg>
+
+
             </ul>
         </nav>
     </header>
-
     <section id="hero">
 
         <div class="section-wrapper">
@@ -69,9 +97,14 @@
                             converge to shape extraordinary spaces and events.
                         </div>
 
-                        <div class="button">
-                            Learn more
+                        <div class="button-wrap">
+                            <div class="button-overlay"> Learn more
+                            </div>
+                            <div class="button">
+                                Learn more
+                            </div>
                         </div>
+
                     </div>
 
                 </div>
@@ -89,8 +122,12 @@
                             serve.
                         </div>
 
-                        <div class="button">
-                            Learn more
+                        <div class="button-wrap">
+                            <div class="button-overlay"> Learn more
+                            </div>
+                            <div class="button">
+                                Learn more
+                            </div>
                         </div>
                     </div>
 
@@ -118,7 +155,7 @@
                         <div class="spinner">
                             <div class="spinner-layer-1"></div>
                             <div class="spinner-layer-2"></div>
-                            <div class="stat-number" data-target="400"> 0</div>
+                            <div class="stat-number" data-target="400"> 400</div>
                         </div>
                         <div class="stat-description">
                             <p>TEAM MEMBER</p>
@@ -128,7 +165,7 @@
                         <div class="spinner">
                             <div class="spinner-layer-1"></div>
                             <div class="spinner-layer-2"></div>
-                            <div class="stat-number" data-target="100">0
+                            <div class="stat-number" data-target="100">100
                             </div>
 
 
@@ -141,7 +178,7 @@
                         <div class="spinner">
                             <div class="spinner-layer-1"></div>
                             <div class="spinner-layer-2"></div>
-                            <div class="stat-number" data-target="75">0</div>
+                            <div class="stat-number" data-target="75">75</div>
 
                         </div>
                         <div class="stat-description">
@@ -153,7 +190,7 @@
                         <div class="spinner">
                             <div class="spinner-layer-1"></div>
                             <div class="spinner-layer-2"></div>
-                            <div class="stat-number" data-target="3">0</div>
+                            <div class="stat-number" data-target="3">3</div>
 
                         </div>
                         <div class="stat-description">
@@ -166,7 +203,7 @@
         </div>
 
     </section>
-     @if($branches->isNotEmpty() )
+    @if($branches->isNotEmpty() )
         <section id="branches">
             <div class="section-warpper">
 
@@ -180,16 +217,21 @@
 
                                     @foreach ($branches as $branch)
 
-                                        <div class="show-text-item" >
-                                            <div class="title" data-marker-content="{{$branch->id}}" >{{ $branch->name }}</div>
-                                            <div class="text">
-                                                {{ $branch->description }}
+                                        <div class="show-text-item" data-marker-content="{{$branch->id}}">
 
-                                            </div>
-                                            <div class="btn">
-                                                <a href="{{ route('branches.show', $branch->id) }}"> Learn more</a>
+                                            <div class="title">{{ $branch->name }}</div>
+                                            <div class="text">{{ $branch->description }}</div>
 
+                                            <div class="button-wrap">
+                                                <div class="button-overlay">
+                                                    <a href="{{ route('branches.show', $branch->id) }}"> Learn more</a>
+                                                </div>
+                                                <div class="button">
+                                                    <a href="{{ route('branches.show', $branch->id) }}"> Learn more</a>
+                                                </div>
                                             </div>
+
+
                                         </div>
 
                                     @endforeach
@@ -205,8 +247,8 @@
                                 <div class="show-img-contain">
                                     @foreach ($branches as $branch)
 
-                                        <div class="show-image" id="branch-img-{{$branch->id}}">
-                                             <img src="/storage/{{$branch->cover->image_path }}"
+                                        <div class="show-image" id="branch-img-{{$branch->id}}"  style="z-index: {{100 - $branch->id}}">
+                                            <img src="/storage/{{$branch->cover->image_path }}"
                                                  alt=""/>
                                         </div>
                                     @endforeach
@@ -228,22 +270,21 @@
 
     @endif()
 
-    @if($projects->isNotEmpty())
 
-        <section id="projects">
-            <div class="section-warpper">
+    <section id="projects">
+        <div class="section-warpper">
 
-                <div class="gallery">
-                    <div class="gallery-filter">
-                        <div class="btn selected">All</div>
+            <div class="gallery">
+                <div class="gallery-filter">
+                    <div class="btn selected">All</div>
 
-                        @foreach ($branches as $branch)
-                            <div class="btn">{{ $branch->name }}</div>
-                        @endforeach
-                    </div>
+                    @foreach ($branches as $branch)
+                        <div class="btn" onclick="filter({{$branch->id}})">{{ $branch->name }}</div>
+                    @endforeach
+                </div>
 
-                    <div class="gallery-container">
-
+                <div class="gallery-container">
+                    @if($projects->isNotEmpty())
                         @foreach ($projects as $project)
 
                             <div class="gallery-block">
@@ -268,34 +309,35 @@
                             </div>
 
                         @endforeach
-
-
-                    </div>
-                </div>
-
-
-                <div class="section-inner">
-                    <div class="section-inner-warpper">
-                        <div class="section-title">
-                        </div>
-                        <div class="section-content">
-
-
-                        </div>
-
-                        <div class="section-buttons">
-
-                        </div>
-                    </div>
-
+                    @endif()
 
                 </div>
 
 
             </div>
 
-        </section>
-    @endif()
+
+            <div class="section-inner">
+                <div class="section-inner-warpper">
+                    <div class="section-title">
+                    </div>
+                    <div class="section-content">
+
+
+                    </div>
+
+                    <div class="section-buttons">
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
 
     <!--
 
@@ -316,9 +358,145 @@
             </div>
         </section>
 
-
-
     -->
+
+    <section id="testimonials" class="testimonials">
+        <div class="container aos-init aos-animate" data-aos="zoom-in">
+
+            <div class="testimonials-slider swiper swiper-initialized swiper-horizontal swiper-pointer-events aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="swiper-wrapper" id="swiper-wrapper-838ec9ef97f301fa" aria-live="off" style="transform: translate3d(-7776px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="0" role="group" aria-label="1 / 5">
+                        <div class="testimonial-item">
+                            <img src="/storage//testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                            <h3>Saul Goodman</h3>
+                            <h4>Ceo &amp; Founder</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="1" role="group" aria-label="2 / 5">
+                        <div class="testimonial-item">
+                            <img src="/storage//testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                            <h3>Sara Wilsson</h3>
+                            <h4>Designer</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="2" role="group" aria-label="3 / 5">
+                        <div class="testimonial-item">
+                            <img src="/storage//testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                            <h3>Jena Karlis</h3>
+                            <h4>Store Owner</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="3" role="group" aria-label="4 / 5">
+                        <div class="testimonial-item">
+                            <img src="/storage//testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                            <h3>Matt Brandon</h3>
+                            <h4>Freelancer</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="4" role="group" aria-label="5 / 5">
+                        <div class="testimonial-item">
+                            <img src="/storage//testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                            <h3>John Larson</h3>
+                            <h4>Entrepreneur</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="0" role="group" aria-label="1 / 5">
+                        <div class="testimonial-item">
+                            <img src="/storage//testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                            <h3>Saul Goodman</h3>
+                            <h4>Ceo &amp; Founder</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1" role="group" aria-label="2 / 5">
+                        <div class="testimonial-item">
+                            <img src="/storage//testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                            <h3>Sara Wilsson</h3>
+                            <h4>Designer</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="2" role="group" aria-label="3 / 5">
+                        <div class="testimonial-item">
+                            <img src="/storage//testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                            <h3>Jena Karlis</h3>
+                            <h4>Store Owner</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide" data-swiper-slide-index="3" role="group" aria-label="4 / 5">
+                        <div class="testimonial-item">
+                            <img src="/storage//testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                            <h3>Matt Brandon</h3>
+                            <h4>Freelancer</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide" data-swiper-slide-index="4" role="group" aria-label="5 / 5">
+                        <div class="testimonial-item">
+                            <img src="/storage//testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                            <h3>John Larson</h3>
+                            <h4>Entrepreneur</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                </div>
+                <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 2" aria-current="true"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5"></span></div>
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+
+        </div>
+    </section>
 
     <div class="heighlight">
 
@@ -330,21 +508,123 @@
                     </div>
 
                     <div class="section-content">
-
                         <img src="https://placehold.co/400x300" height="400" width="300" alt=""/>
                         <img src="https://placehold.co/400x300" height="400" width="300" alt=""/>
                         <img src="https://placehold.co/400x300" height="400" width="300" alt=""/>
                         <img src="https://placehold.co/400x300" height="400" width="300" alt=""/>
                         <img src="https://placehold.co/400x300" height="400" width="300" alt=""/>
                         <img src="https://placehold.co/400x300" height="400" width="300" alt=""/>
-
                     </div>
 
                 </div>
             </div>
         </section>
 
-        <footer></footer>
+        <footer>
+            <div class="company-info">
+
+                <div class="logo-container">
+                    <div class="spinner">
+                        <div class="spinner-layer-1"></div>
+                        <div class="spinner-layer-2"></div>
+                        <div class="spinner-layer-3"></div>
+                        <div class="logo"></div>
+                    </div>
+                </div>
+
+                <div class="branches-info-container">
+                    <div class="branche-info">
+                        <div class="branche-info-title">UAE (HEAD OFFICE)</div>
+                        <div class="branche-info-address">Plot No. 598-532, DIP – Phase 1 P.O Box 502174, Dubai, UAE
+                        </div>
+                        <div class="branche-info-tel">Tel: +97142551113</div>
+                        <div class="branche-info-mob">Mob: +971528996616</div>
+                    </div>
+
+                    <div class="branche-info">
+                        <div class="branche-info-title">SAUDI ARABIA - RIYADH</div>
+                        <div class="branche-info-address">King Abdul Aziz Road, 7633.2154.13312 1st Floor, office
+                            No.22
+                        </div>
+                        <div class="branche-info-tel">Tel: +966 112049991</div>
+                        <div class="branche-info-mob">Mob: +966 504453361</div>
+                    </div>
+
+                    <div class="branche-info">
+                        <div class="branche-info-title">EGYPT - NEW CAIRO</div>
+                        <div class="branche-info-address">Office 1.C, Building B2 Mivida Business Park</div>
+                        <div class="branche-info-tel">Tel: +20244872110</div>
+                        <div class="branche-info-mob">Mob: +20120044413</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="box-container">
+                <div class="box">
+                </div>
+
+                <div class="box">
+                    <div class="box-title">
+                        <h4>Units</h4>
+                    </div>
+                    <div class="box-content">
+
+                        <ul>
+                            <li>CONSTRUCTION & ARCHITECTURE</li>
+                            <li>EXHIBITIONS & CONFERENCES
+                            </li>
+                            <li>EVENT PRODUCTION
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="box-title">
+                        <h4>Categories</h4>
+                    </div>
+                    <div class="box-content">
+
+                        <ul>
+                            <li>Construction</li>
+                            <li>Architecture</li>
+                            <li>Fit-Out Services</li>
+                            <li>Event Planning and Coordination</li>
+                            <li>Event Marketing and Promotion</li>
+                            <li>On-Site Event Management</li>
+                            <li>EVenue Management</li>
+                            <li>Event Planning and Coordination</li>
+                            <li>Post-Event Services</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box-title">
+                        <h4>About Us</h4>
+                    </div>
+                    <div class="box-content">
+
+                        <ul>
+                            <li>our mission</li>
+                            <li>our vision</li>
+                            <li>our expertise</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="copy-write">
+
+
+                <span>
+                    Copywrite@mediaLand 2024
+                </span>
+
+            </div>
+
+
+        </footer>
     </div>
 
 
@@ -363,304 +643,22 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js"></script>
 
+
 <script>
 
-    // Initialize Lenis for smooth scrolling
-    const lenis = new Lenis();
-    lenis.on("scroll", (e) => {
-        //console.log(e);
-    });
+    async function filter(branch_id) {
+      var content  = document.querySelector(".gallery-container")
 
-    function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    }
+        const response = await fetch('/filtred-projects/' + branch_id);
 
-    requestAnimationFrame(raf);
-
-    // Initialize GSAP animations
-    function initGsapAnimations() {
-        // Hero section animation
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#hero",
-                start: "top top",
-                end: "bottom top",
-                toggleActions: "play complete reverse reset",
-                scrub: true,
-                pin: "#hero",
-                ease: "power2",
-                // markers: true,
-            },
-        });
-
-        gsap.utils.toArray(".parallax").forEach((layer) => {
-            const depth = layer.dataset.depth;
-            const movement = layer.offsetHeight * depth;
-            tl.to(layer, {y: movement * 1.5, ease: "none"}, 0);
-        });
-
-        tl.to(
-            ".end",
-            {
-                opacity: 1,
-                ease: "none",
-            },
-            "80%"
-        );
-
-        tl.to(
-            "header",
-            {
-                position: "absolute",
-                ease: "slow",
-            },
-            "80%"
-        );
-
-
-        tl.to(
-            "#hero  .section-inner    .about-us",
-            {
-                y: 0,
-                opacity: 1,
-                ease: "power3",
-            },
-            "60%"
-        );
-
-        tl.to(
-            "#hero  .section-inner    .about-us",
-            {
-                y: -100,
-                opacity: 0,
-                ease: "power3",
-            },
-            "50%"
-        );
-
-        tl.to(
-            "#hero  .section-inner    .our-mission",
-            {
-                y: 0,
-                opacity: 1,
-                ease: "slow",
-            },
-            "40%"
-        );
-
-        //Statistics section title animation
-        const statisticsSectionTitleAnimation = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#statistics",
-                start: "top center",
-                end: "top 20%",
-                toggleActions: "play complete play reset",
-                scrub: true,
-                // markers:true
-            },
-        });
-
-        statisticsSectionTitleAnimation.to("#statistics .section-title", {
-            opacity: 1,
-            y: 0,
-        });
-
-        //Statistics   items  animation
-        const statisticsPinAnimation = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#statistics",
-                start: "top top",
-                pin: "#statistics",
-                end: "bottom top",
-                toggleActions: "play complete play reset",
-                scrub: true,
-            },
-        });
-
-        //Statistics   items  animation
-        const statisticsItemsAnimation = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#statistics",
-                start: "top 30%",
-                end: "bottom top",
-                toggleActions: "play complete play reset",
-                scrub: true,
-                // markers: true,
-            },
-        });
-        statisticsItemsAnimation.to(
-            ".projects ",
-            {
-                opacity: 0.7,
-                x: 0,
-                y: 0,
-                ease: "power3",
-            },
-            "60%"
-        );
-        statisticsItemsAnimation.to(
-            ".partners ",
-            {
-                opacity: 0.7,
-                x: 0,
-                y: 0,
-                ease: "power3",
-            },
-            "60%"
-        );
-        statisticsItemsAnimation.to(
-            ".members ",
-            {
-                opacity: 0.7,
-                x: 0,
-                y: 0,
-                ease: "power3",
-            },
-            "40%"
-        );
-        statisticsItemsAnimation.to(
-            ".countries ",
-            {
-                opacity: 0.7,
-                x: 0,
-                y: 0,
-                ease: "power3",
-            },
-            "40%"
-        );
-
-
-        //Statistics section title animation
-        const showcasePineAnimation = gsap.timeline({
-            scrollTrigger: {
-                trigger: ".show-text",
-                start: "top top",
-                end: "bottom 80%",
-                toggleActions: "play complete play reset",
-                pin: ".show-images",
-                onUpdate:(self) => {
-                    getCurrentSection()
-                },
-                scrub: true,
-                //  markers:true,
-            },
-        });
-
-
-
-        const contentMarkers = gsap.utils.toArray(".showcase-pin  .show-text .show-text-contain .show-text-item  .title ");
-
-        contentMarkers.forEach(marker => {
-
-            marker.content = document.querySelector(`#branch-img-${marker.dataset.markerContent}  img`);
-            gsap.set(marker.content, {transformOrigin: "center"});
-
-            marker.content.enter = function () {
-                gsap.fromTo(marker.content, {  autoAlpha: 0 }, {duration: 0.3, autoAlpha: 1 });
-            }
-
-            marker.content.leave = function () {
-                gsap.fromTo(marker.content, { autoAlpha: 1 } , {duration: 0.1, autoAlpha: 0});
-            }
-
-        });
-        let lastContent;
-        function getCurrentSection() {
-            let newContent;
-
-            const currScroll = scrollY;
-            // Find the current section
-            const element = document.querySelector('.show-img-contain');
-            contentMarkers.forEach(marker => {
-
-
-
-                if(marker.getBoundingClientRect().top < element.getBoundingClientRect().bottom) {
-                    newContent = marker.content;
-                }
-
-            });
-
-
-            if(newContent
-                && (lastContent == null
-                    || !newContent.isSameNode(lastContent))) {
-                // Fade out last section
-                if(lastContent) {
-                    lastContent.leave();
-                }
-
-                // Animate in new section
-                newContent.enter();
-
-                lastContent = newContent;
-            }
-
+        if (response.status >= 200 && response.status < 300) {
+            const data = await response.json()
+             content.innerHTML = data.content
+        } else {
+            console.error(response)
         }
 
-
-
-
-
-        const projectSectionAnimation = gsap.timeline({
-            scrollTrigger: {
-                trigger: ".show-text",
-                start: "top top",
-                end: "bottom 80%",
-                toggleActions: "play complete play reset",
-                scrub: true,
-                //  markers:true,
-            },
-        });
-
-
-        const awardsSectionAnimation = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#network",
-                start: "-200% top",
-                end: "bottom -30%",
-                toggleActions: "play complete play reset",
-                scrub: true,
-            },
-        });
-
-        awardsSectionAnimation.to(
-            " #network .section-content",
-            {
-                x: "-50%",
-                ease: "ease",
-            }
-        );
-
-
-        const footerSectionAnimation = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#network",
-                start: "top top ",
-                end: "bottom top",
-                toggleActions: "play complete play reset",
-            },
-        });
-
-
-        footerSectionAnimation.to(
-            ".heighlight",
-            {
-                background: "linear-gradient(180deg,  #00011b , #5ab597)",
-                duration: 1,
-                ease: "none"
-            }
-        );
-
     }
-
-    // Initialize everything
-    document.addEventListener("DOMContentLoaded", () => {
-        initGsapAnimations();
-        //initSwiper();
-    });
-
 
 </script>
 </body>

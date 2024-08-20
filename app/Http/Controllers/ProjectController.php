@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Branch;
 use App\Models\Project;
-
 use Illuminate\Http\Request;
-use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Http\JsonResponse;
 
 class ProjectController extends Controller
 {
-
-
 
 
     /**
@@ -24,4 +21,16 @@ class ProjectController extends Controller
     }
 
 
+    public function filteredProjects(Request $request, string $branch_id)
+    {
+        $projects = \App\Models\Project::with('branch')
+            ->where('branch_id', $branch_id)
+            ->get();
+
+        return new JsonResponse([
+            'content' => Blade::render('projects.project_content', ['projects' => $projects])
+        ]);
+
+
+    }
 }

@@ -4,33 +4,27 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::resource('branches', \App\Http\Controllers\Admin\BranchController::class );
+    Route::resource('branches', \App\Http\Controllers\Admin\BranchController::class);
     Route::resource('projects', \App\Http\Controllers\Admin\ProjectController::class);
 
 });
 
 
-Route::resource('branches',\App\Http\Controllers\BranchController::class);
+Route::resource('branches', \App\Http\Controllers\BranchController::class);
 Route::resource('projects', \App\Http\Controllers\ProjectController::class);
 
 
 Route::get('/', function () {
-    $projects=  \App\Models\Project::with('branch')->get();
+    $projects = \App\Models\Project::with('branch')->get();
 
-    return view('landing-page.index' , ['projects'=>$projects , 'branches'=>\App\Models\Branch::all()]);
-
-});
-
-
-
-Route::get('/', function () {
-    $projects=  \App\Models\Project::with('branch')->get();
-
-    return view('landing-page.index' , ['projects'=>$projects , 'branches'=>\App\Models\Branch::all()]);
+    return view('landing-page.index', ['projects' => $projects, 'branches' => \App\Models\Branch::all()]);
 
 });
+
+
+
+Route::get('/filtred-projects/{branch_id}', [\App\Http\Controllers\ProjectController::class, 'filteredProjects']);
 
 
 
