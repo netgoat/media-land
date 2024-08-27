@@ -26,6 +26,8 @@ Route::get('/', function () {
 
 Route::get('/filtred-projects/{branch_id}', [\App\Http\Controllers\ProjectController::class, 'filteredProjects']);
 
+Route::get('/filtred-projects', [\App\Http\Controllers\ProjectController::class, 'shortList']);
+
 
 
 

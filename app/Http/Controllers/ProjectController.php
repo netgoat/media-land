@@ -25,6 +25,7 @@ class ProjectController extends Controller
     {
         $projects = \App\Models\Project::with('branch')
             ->where('branch_id', $branch_id)
+            ->take(10)
             ->get();
 
         return new JsonResponse([
@@ -33,4 +34,19 @@ class ProjectController extends Controller
 
 
     }
+
+    public function shortList(Request $request )
+    {
+        $projects = \App\Models\Project::with('branch')
+            ->take(10)
+            ->get();
+
+        return new JsonResponse([
+            'content' => Blade::render('projects.project_content', ['projects' => $projects])
+        ]);
+
+
+    }
+
+
 }

@@ -276,10 +276,10 @@
 
             <div class="gallery">
                 <div class="gallery-filter">
-                    <div class="btn selected">All</div>
+                    <div class="btn" id="all" onclick="filter('all', this)">All</div>
 
                     @foreach ($branches as $branch)
-                        <div class="btn" onclick="filter({{$branch->id}})">{{ $branch->name }}</div>
+                        <div class="btn" id="{{$branch->id}}" onclick="filter({{$branch->id}} , this)">{{ $branch->name }}</div>
                     @endforeach
                 </div>
 
@@ -646,19 +646,38 @@
 
 <script>
 
-    async function filter(branch_id) {
-      var content  = document.querySelector(".gallery-container")
 
-        const response = await fetch('/filtred-projects/' + branch_id);
+    let currentFilter = document.querySelector(".gallery-filter #all");
+    currentFilter.classList.add('selected');
 
-        if (response.status >= 200 && response.status < 300) {
-            const data = await response.json()
-             content.innerHTML = data.content
-        } else {
-            console.error(response)
+    async function filter(branch_id, element) {
+        // Remove 'selected' class from previously selected filter
+        if (currentFilter) {
+            currentFilter.classList.remove('selected');
         }
 
+        // Update currentFilter to the newly selected element
+        currentFilter = element;
+
+        // Add the 'selected' class to the new filter element
+        currentFilter.classList.add('selected');
+
+        const content = document.querySelector(".gallery-container");
+
+        try {
+            const response = await fetch(  branch_id  === "all"  ? '/filtred-projects/'  :  '/filtred-projects/'+branch_id );
+
+            if (response.ok) {
+                const data = await response.json();
+                content.innerHTML = data.content;
+            } else {
+                console.error(`Error: ${response.status} ${response.statusText}`);
+            }
+        } catch (error) {
+            console.error('Fetch error:', error);
+        }
     }
+
 
 </script>
 </body>
